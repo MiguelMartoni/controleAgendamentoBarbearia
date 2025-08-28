@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Premium - Histórico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/historico.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand">
+                            <img src="../img/Copilot_20250827_195044.png" alt="Logo Barbearia Premium" class="brand-logo">
+            <span>Barbearia Premium</span>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="bi bi-calendar-event me-2"></i> <span>Agendamentos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="historico.html">
+                    <i class="bi bi-clock-history me-2"></i> <span>Histórico</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Histórico de Agendamentos</h2>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filtros-container mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="bi bi-funnel me-2"></i>Filtros
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="dataInicio" class="form-label">Data Início</label>
+                            <input type="date" class="form-control" id="dataInicio">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="dataFim" class="form-label">Data Fim</label>
+                            <input type="date" class="form-control" id="dataFim">
+                        </div>
+                        <div class="col-md-4 mb-3 d-flex align-items-end">
+                            <button type="button" class="btn btn-primary me-2" id="btnFiltrar">
+                                <i class="bi bi-search me-2"></i>Filtrar
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="btnLimparFiltros">
+                                <i class="bi bi-arrow-clockwise me-2"></i>Limpar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="estatisticas-container mb-4">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-primary" id="totalAgendamentos">0</h3>
+                            <p class="card-text">Total de Agendamentos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-success" id="totalFinalizados">0</h3>
+                            <p class="card-text">Finalizados</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-danger" id="totalCancelados">0</h3>
+                            <p class="card-text">Cancelados</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-warning" id="totalPendentes">0</h3>
+                            <p class="card-text">Pendentes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Carregando...</span>
+            </div>
+            <p class="mt-2">Carregando histórico...</p>
+        </div>
+
+        <!-- Indicador de período -->
+        <div id="periodo-indicador" class="periodo-indicador" style="display: none;">
+            <!-- Será preenchido via JavaScript -->
+        </div>
+
+        <div class="agendamentos-list historico-container" id="historico-container">
+            <!-- O histórico será carregado aqui via JavaScript -->
+        </div>
+
+        <!-- Seção de Agendamentos Futuros -->
+        <div class="mt-5" id="futuros">
+            <h3 class="mb-4">
+                <i class="bi bi-calendar-plus me-2"></i>Agendamentos Futuros
+            </h3>
+            <div class="agendamentos-list historico-container" id="futuros-container">
+                <!-- Os agendamentos futuros serão carregados aqui via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/historico.js"></script>
+</body>
+</html> 

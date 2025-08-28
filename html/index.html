@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Premium - Sistema de Agendamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <body>
+        <div class="sidebar">
+            <div class="brand">
+                <img src="../img/Copilot_20250827_195044.png" alt="Logo Barbearia Premium" class="brand-logo">
+                <span>Barbearia Premium</span>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <i class="bi bi-calendar-event me-2"></i> <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="historico.html">
+                        <i class="bi bi-clock-history me-2"></i> <span>Histórico</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="historico.html#futuros">
+                        <i class="bi bi-calendar-plus me-2"></i> <span>Futuros</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="main-content">
+            <div class="header">
+                <h2>Agendamentos do Dia</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgendamento">
+                    <i class="bi bi-plus-circle me-2"></i>Novo Agendamento
+                </button>
+            </div>
+    
+            <div class="loading">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+                <p class="mt-2">Carregando agendamentos...</p>
+            </div>
+    
+            <div class="agendamentos-list" id="agendamentos-container">
+                <!-- Os agendamentos serão carregados aqui via JavaScript -->
+            </div>
+        </div>
+    
+        <!-- Modal para criar agendamento -->
+        <div class="modal fade" id="modalAgendamento" tabindex="-1" aria-labelledby="modalAgendamentoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAgendamentoLabel">Novo Agendamento</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formAgendamento">
+                            <div class="mb-3" hidden>
+                                <label for="clienteNome" class="form-label">Nome do Cliente</label>
+                                <input type="text" class="form-control" id="clienteNome" placeholder="Digite o nome do cliente" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" placeholder="(11) 99999-9999" maxlength="15">
+                            </div>
+                            <div class="mb-3">
+                                <label for="servico" class="form-label">Serviço</label>
+                                <select class="form-select" id="servico" required>
+                                    <option value="" selected disabled>Carregando serviços...</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="data" class="form-label">Data</label>
+                                    <input type="date" class="form-control" id="data" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="horario" class="form-label">Horário</label>
+                                    <input type="time" class="form-control" id="horario" required>
+                                </div>
+                            </div>
+                            <div class="mb-3" id="statusContainer" style="display: none;">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" id="status" required>
+                                    <option value="" selected disabled>Carregando status...</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnSalvarAgendamento">Salvar Agendamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmação para finalizar agendamento -->
+        <div class="modal fade" id="modalConfirmarFinalizar" tabindex="-1" aria-labelledby="modalConfirmarFinalizarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfirmarFinalizarLabel">
+                            <i class="bi bi-check-circle text-success me-2"></i>Finalizar Agendamento
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja <strong>finalizar</strong> este agendamento?</p>
+                        <p class="text-muted mb-0">Esta ação não pode ser desfeita.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="btnConfirmarFinalizar">
+                            <i class="bi bi-check-circle me-2"></i>Finalizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmação para cancelar agendamento -->
+        <div class="modal fade" id="modalConfirmarCancelar" tabindex="-1" aria-labelledby="modalConfirmarCancelarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfirmarCancelarLabel">
+                            <i class="bi bi-x-circle text-danger me-2"></i>Cancelar Agendamento
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja <strong>cancelar</strong> este agendamento?</p>
+                        <p class="text-muted mb-0">Esta ação não pode ser desfeita.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Não, manter</button>
+                        <button type="button" class="btn btn-danger" id="btnConfirmarCancelar">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmação para excluir agendamento -->
+        <div class="modal fade" id="modalConfirmarExcluir" tabindex="-1" aria-labelledby="modalConfirmarExcluirLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfirmarExcluirLabel">
+                            <i class="bi bi-trash text-danger me-2"></i>Excluir Agendamento
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja <strong>excluir</strong> este agendamento?</p>
+                        <p class="text-muted mb-0">Esta ação não pode ser desfeita e o agendamento será removido permanentemente.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Não, manter</button>
+                        <button type="button" class="btn btn-danger" id="btnConfirmarExcluir">
+                            <i class="bi bi-trash me-2"></i>Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

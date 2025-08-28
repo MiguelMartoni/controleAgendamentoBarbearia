@@ -1,0 +1,6 @@
+{
+    "scripts": {
+      "server": "json-server --watch db.json --port 3001",
+      "server-delay": "json-server --watch db.json --port 3001 --delay 1000"
+    }
+  }

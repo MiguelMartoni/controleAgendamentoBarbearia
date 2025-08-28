@@ -1,0 +1,131 @@
+{
+  "agendamentos": [
+    {
+      "cliente": "Joaquim",
+      "telefone": "11996607805",
+      "servicoId": "1",
+      "data": "1999-05-03",
+      "horario": "09:00",
+      "statusId": "3",
+      "id": "1"
+    },
+    {
+      "id": "a031",
+      "cliente": "Miguel",
+      "telefone": "11996607805",
+      "servicoId": "1",
+      "data": "2027-04-24",
+      "horario": "11:00",
+      "statusId": "2"
+    },
+    {
+      "id": "3751",
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "7",
+      "data": "2025-08-27",
+      "horario": "21:26",
+      "statusId": "2"
+    },
+    {
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "7",
+      "data": "2025-08-27",
+      "horario": "21:00",
+      "statusId": "2",
+      "id": "987d"
+    },
+    {
+      "id": "322b",
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "7",
+      "data": "2025-10-30",
+      "horario": "10:00",
+      "statusId": "2"
+    },
+    {
+      "id": "c498",
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "1",
+      "data": "2025-08-28",
+      "horario": "20:54",
+      "statusId": "3"
+    },
+    {
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "5",
+      "data": "2025-08-28",
+      "horario": "19:55",
+      "statusId": "2",
+      "id": "5236"
+    },
+    {
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "4",
+      "data": "2025-08-28",
+      "horario": "14:00",
+      "statusId": "2",
+      "id": "1f27"
+    },
+    {
+      "id": "aecc",
+      "cliente": "miguel",
+      "telefone": "11996607805",
+      "servicoId": "1",
+      "data": "2025-08-28",
+      "horario": "14:00",
+      "statusId": "3"
+    },
+    {
+      "id": "c89c",
+      "cliente": "miguel1",
+      "telefone": "11996607805",
+      "servicoId": "3",
+      "data": "2222-10-20",
+      "horario": "10:00",
+      "statusId": "1"
+    }
+  ],
+  "servicos": [
+    {
+      "id": "1",
+      "nome": "Corte de Cabelo",
+      "preco": 25,
+      "duracao": 30
+    },
+    {
+      "id": "2",
+      "nome": "Barba",
+      "preco": 20,
+      "duracao": 20
+    },
+    {
+      "id": "3",
+      "nome": "Corte de Cabelo e Barba",
+      "preco": 40,
+      "duracao": 45
+    }
+  ],
+  "status": [
+    {
+      "id": "1",
+      "nome": "Pendente",
+      "cor": "#d39e00"
+    },
+    {
+      "id": "2",
+      "nome": "Finalizado",
+      "cor": "#28a745"
+    },
+    {
+      "id": "3",
+      "nome": "Cancelado",
+      "cor": "#dc3545"
+    }
+  ]
+}

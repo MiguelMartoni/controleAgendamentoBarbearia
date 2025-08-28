@@ -1,0 +1,631 @@
+
+:root {
+    --color-light: #F2F2F2;
+    --color-cream: #EAE4D5;
+    --color-taupe: #B6B09F;
+    --color-dark: #000000;
+    --color-primary: #8B7355; /* Nova cor primária baseada na paleta */
+    --color-primary-hover: #7A6344; /* Cor hover para botões primários */
+}
+
+body {
+    background-color: var(--color-light);
+    font-family: 'Inter', sans-serif;
+    color: var(--color-dark);
+}
+
+.sidebar {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    height: 100vh;
+    position: fixed;
+    padding-top: 30px;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 250px;
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    color: var(--color-light);
+    padding: 12px 20px;
+    margin: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: var(--color-taupe);
+    color: var(--color-dark);
+}
+
+.sidebar .brand {
+    padding: 0 25px 25px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(242, 242, 242, 0.2);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+.header {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(139, 115, 85, 0.25) !important;
+}
+
+.btn-primary:focus:not(:focus-visible) {
+    box-shadow: 0 0 0 0.25rem rgba(139, 115, 85, 0.25) !important;
+}
+
+/* Sobrescrever cores do Bootstrap para botões primários */
+.btn.btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--color-primary-hover) !important;
+    border-color: var(--color-primary-hover) !important;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(139, 115, 85, 0.25) !important;
+}
+
+.btn-secondary {
+    background-color: var(--color-taupe);
+    border-color: var(--color-taupe);
+    color: var(--color-dark);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #A69B8A;
+    border-color: #A69B8A;
+    color: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active {
+    background-color: var(--color-taupe) !important;
+    border-color: var(--color-taupe) !important;
+    color: var(--color-dark) !important;
+    box-shadow: 0 0 0 0.25rem rgba(182, 176, 159, 0.25) !important;
+}
+
+.btn-secondary:focus:not(:focus-visible) {
+    box-shadow: 0 0 0 0.25rem rgba(182, 176, 159, 0.25) !important;
+}
+
+/* Sobrescrever cores do Bootstrap para botões secondary */
+.btn.btn-secondary {
+    background-color: var(--color-taupe) !important;
+    border-color: var(--color-taupe) !important;
+    color: var(--color-dark) !important;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #A69B8A !important;
+    border-color: #A69B8A !important;
+    color: var(--color-dark) !important;
+}
+
+.btn.btn-secondary:focus,
+.btn.btn-secondary:active,
+.btn.btn-secondary.active {
+    background-color: var(--color-taupe) !important;
+    border-color: var(--color-taupe) !important;
+    color: var(--color-dark) !important;
+    box-shadow: 0 0 0 0.25rem rgba(182, 176, 159, 0.25) !important;
+}
+
+/* Estilos para botões success (finalizar) */
+.btn-success {
+    background-color: #2E8B57;
+    border-color: #2E8B57;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #228B22;
+    border-color: #228B22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-success {
+    background-color: #2E8B57 !important;
+    border-color: #2E8B57 !important;
+    color: white !important;
+}
+
+.btn.btn-success:hover {
+    background-color: #228B22 !important;
+    border-color: #228B22 !important;
+    color: white !important;
+}
+
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn.btn-success.active {
+    background-color: #2E8B57 !important;
+    border-color: #2E8B57 !important;
+    color: white !important;
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25) !important;
+}
+
+/* Estilos para botões danger (cancelar/excluir) */
+.btn-danger {
+    background-color: #B22222;
+    border-color: #B22222;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #8B0000;
+    border-color: #8B0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-danger {
+    background-color: #B22222 !important;
+    border-color: #B22222 !important;
+    color: white !important;
+}
+
+.btn.btn-danger:hover {
+    background-color: #8B0000 !important;
+    border-color: #8B0000 !important;
+    color: white !important;
+}
+
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn.btn-danger.active {
+    background-color: #B22222 !important;
+    border-color: #B22222 !important;
+    color: white !important;
+    box-shadow: 0 0 0 0.25rem rgba(178, 34, 34, 0.25) !important;
+}
+
+/* Estilos para botões dark (cancelar/manter) */
+.btn-dark {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #333333;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-dark {
+    background-color: var(--color-dark) !important;
+    border-color: var(--color-dark) !important;
+    color: white !important;
+}
+
+.btn.btn-dark:hover {
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+    color: white !important;
+}
+
+.btn.btn-dark:focus,
+.btn.btn-dark:active,
+.btn.btn-dark.active {
+    background-color: var(--color-dark) !important;
+    border-color: var(--color-dark) !important;
+    color: white !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Melhorar cores dos ícones nos modais */
+.modal-header .text-success {
+    color: #2E8B57 !important;
+}
+
+.modal-header .text-danger {
+    color: #B22222 !important;
+}
+
+/* Estilos para campos desabilitados */
+.form-control-disabled {
+    background-color: #f8f9fa !important;
+    border-color: #dee2e6 !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
+
+.form-control-disabled:focus {
+    box-shadow: none !important;
+    border-color: #dee2e6 !important;
+}
+
+/* Estilo para labels de campos desabilitados */
+.form-control-disabled + label,
+.form-control-disabled ~ label {
+    color: #6c757d !important;
+}
+
+/* Estilo para preços nos cards */
+.card-text .text-success {
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+/* Cor vermelha para preços de agendamentos cancelados */
+.card-text .text-danger-cancelado {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #B22222 !important;
+}
+
+/* Cor preta para preços de agendamentos pendentes */
+.card-text .text-dark {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: var(--color-dark) !important;
+}
+
+.card-agendamento {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    background: white;
+    padding: 15px;
+    max-width: 100%;
+}
+
+.card-agendamento:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pendente {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #d39e00;
+}
+
+.status-finalizado {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.status-cancelado {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+.modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: var(--color-dark);
+    color: white;
+    border: none;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid var(--color-cream);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-taupe);
+    box-shadow: 0 0 0 0.25rem rgba(182, 176, 159, 0.25);
+}
+
+.btn-outline-primary {
+    border-color: var(--color-taupe);
+    color: var(--color-dark);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-taupe);
+    border-color: var(--color-taupe);
+}
+
+.btn-outline-danger {
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+.btn-outline-danger:hover {
+    transform: translateY(-1px);
+}
+
+h2 {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.agendamentos-list {
+    padding-right: 10px;
+}
+
+/* Ajustes para os cards ficarem compactos */
+.card-body {
+    padding: 0;
+}
+
+.card-agendamento .d-flex {
+    align-items: center;
+}
+
+.btn-outline-primary:focus {
+    background-color: transparent;
+    border-color: var(--color-taupe);
+    color: var(--color-dark);
+}
+
+.btn-outline-danger:focus {
+    background-color: transparent;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+/* Botões de ícone nos cards */
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: all 0.3s ease;
+    margin: 0 2px;
+}
+
+.btn-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.btn-icon-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-icon-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.btn-icon-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-icon-primary {
+    background-color: rgba(139, 115, 85, 0.1);
+    color: var(--color-primary);
+}
+
+.btn-icon-primary:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Ajuste para os botões do modal terem o mesmo tamanho */
+.modal-footer {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-footer .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        padding-top: 20px;
+    }
+    
+    .sidebar .brand {
+        font-size: 1.2rem;
+        padding: 0 15px 15px;
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .brand-logo {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .sidebar .nav-link span {
+        display: none;
+    }
+    
+    .sidebar .nav-link {
+        text-align: center;
+        padding: 15px 10px;
+        margin: 8px 10px;
+    }
+    
+    .sidebar .nav-link i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .main-content {
+        margin-left: 80px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-agendamento .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-agendamento .d-flex > div:first-child {
+        margin-bottom: 10px;
+    }
+    
+    .card-agendamento .d-flex > div:last-child {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .card-agendamento {
+        padding: 12px;
+    }
+    
+}
+/* Mensagens Toast */
+.alert-toast {
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Loading spinner */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner-border {
+    color: var(--color-dark);
+}

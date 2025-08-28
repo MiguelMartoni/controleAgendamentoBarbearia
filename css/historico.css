@@ -1,0 +1,154 @@
+/* Estilos específicos para a página de histórico */
+
+/* Container de filtros */
+.filtros-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.filtros-container .card {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.filtros-container .card-title {
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Estatísticas */
+.estatisticas-container .card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.estatisticas-container .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.estatisticas-container .card-body {
+    padding: 25px 20px;
+}
+
+.estatisticas-container h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.estatisticas-container .card-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Cores harmônicas para estatísticas */
+.estatisticas-container .text-primary {
+    color: var(--color-primary) !important;
+}
+
+.estatisticas-container .text-success {
+    color: #2E8B57 !important;
+}
+
+.estatisticas-container .text-danger {
+    color: #B22222 !important;
+}
+
+.estatisticas-container .text-warning {
+    color: #d39e00 !important;
+}
+
+/* Botões de filtro */
+#btnFiltrar {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#btnFiltrar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+}
+
+#btnLimparFiltros {
+    background: linear-gradient(135deg, var(--color-taupe) 0%, #A69B8A 100%);
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#btnLimparFiltros:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(182, 176, 159, 0.3);
+}
+
+/* Campos de data */
+.form-control[type="date"] {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-control[type="date"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(139, 115, 85, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .filtros-container {
+        padding: 15px;
+    }
+    
+    .estatisticas-container .card-body {
+        padding: 20px 15px;
+    }
+    
+    .estatisticas-container h3 {
+        font-size: 2rem;
+    }
+    
+    .estatisticas-container .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Melhorias nos cards de agendamento para histórico */
+.historico-container .card-agendamento {
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.historico-container .card-agendamento:hover {
+    border-left-color: var(--color-primary-hover);
+    transform: translateX(5px);
+}
+
+/* Indicador de período no histórico */
+.periodo-indicador {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+} 
